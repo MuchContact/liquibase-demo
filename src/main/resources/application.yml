@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@//192.168.101.14:1521/cgdb0501
+    username: <username>
+    password: <password>
+    driver-class-name: oracle.jdbc.OracleDriver
+
+liquibase:
+  change-log: classpath:db.changelog.xml
+  enabled: true
