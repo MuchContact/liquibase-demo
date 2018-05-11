@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:oracle:thin:@//192.168.101.14:1521/cgdb0501
+    url: jdbc:mysql://${DB_HOST:192.168.99.105}:${DB_PORT:3306}/${DB_NAME:test}
     username: <username>
     password: <password>
-    driver-class-name: oracle.jdbc.OracleDriver
+    driver-class-name: com.mysql.jdbc.Driver
 
 liquibase:
   change-log: classpath:db.changelog.xml
