@@ -1,5 +1,5 @@
 ## 项目说明
-本项目另有Oracle和MySQL两个分支，演示如何利用`同一个db.changelog.xml`变更文件初始化Oracle和MySQL数据库。使用时请修改application.yml中数据库配置。
+本项目另有Oracle和MySQL两个分支，演示如何利用`同一个db.changelog.xml`变更文件初始化Oracle和MySQL数据库。使用时请切换到Oracle或者MySQL分支并修改application.yml中数据库配置。
 
 ## 演示场景说明
 ### 1. Oracle

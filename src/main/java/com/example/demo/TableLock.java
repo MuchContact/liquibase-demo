@@ -9,13 +9,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "a_1")
 public class TableLock {
-//    @GenericGenerator(name = "generator", strategy = "assigned")
     @Id
     @GeneratedValue(generator = "generator")
+//    @GenericGenerator(name = "generator", strategy = "native")
     @SequenceGenerator(name = "generator")
     private int id;
 
-    @Column(name = "key")
+    @Column(name = "unikey")
     private String unicode;
 }
 

@@ -17,7 +17,7 @@ public class TestController {
     @RequestMapping(method = RequestMethod.POST)
     public String get() {
         TableLock s = new TableLock();
-        s.setUnicode("test");
+        s.setUnicode("testa");
         jpa.save(s);
         return "liquibase demo";
     }
