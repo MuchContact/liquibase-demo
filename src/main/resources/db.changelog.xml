@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="schema.dlsys" value="" dbms="mysql"/>
+    <property name="schema.dlsys" value="dlsys" dbms="oracle"/>
+
+    <property name="schema.dlmis" value="" dbms="mysql"/>
+    <property name="schema.dlmis" value="dlmis" dbms="oracle"/>
+
+    <changeSet author="xxx" id="createTable-example-01">
+        <createTable remarks="系统配置表(测试)"
+                     schemaName="${schema.dlsys}"
+                     tableName="a_1">
+            <column name="id" autoIncrement="true" type="int">
+                <constraints primaryKey="true"></constraints>
+            </column>
+            <column name="key" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="xxx" id="createTable-example-02">
+        <preConditions onFail="CONTINUE">
+            <not>
+                <tableExists tableName="a_2" schemaName="${schema.dlmis}"></tableExists>
+            </not>
+        </preConditions>
+        <createTable remarks="业务表(测试)"
+                     schemaName="${schema.dlmis}"
+                     tableName="a_2">
+            <column name="id" autoIncrement="true" type="int">
+                <constraints primaryKey="true"></constraints>
+            </column>
+            <column name="address" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="xxx">
+        <renameColumn schemaName="${schema.dlsys}" tableName="a_1" oldColumnName="key" newColumnName="unikey"
+                      columnDataType="varchar(255)"/>
+    </changeSet>
+</databaseChangeLog>

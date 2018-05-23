@@ -1,0 +1,10 @@
+liquibase:
+  change-log: classpath:db.changelog.xml
+  enabled: true
+
+logging:
+  level:
+    org.springframework: ERROR
+    org.hibernate: ERROR
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
