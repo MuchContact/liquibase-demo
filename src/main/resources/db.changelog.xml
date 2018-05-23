@@ -38,4 +38,8 @@
             <column name="address" type="varchar(255)"/>
         </createTable>
     </changeSet>
+    <changeSet id="3" author="xxx">
+        <renameColumn schemaName="${schema.dlsys}" tableName="a_1" oldColumnName="key" newColumnName="unikey"
+                      columnDataType="varchar(255)"/>
+    </changeSet>
 </databaseChangeLog>
