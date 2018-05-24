@@ -18,7 +18,7 @@ public class TestController {
     public String get() {
         TableLock s = new TableLock();
         s.setUnicode("testa");
-        jpa.save(s);
-        return "liquibase demo";
+        TableLock save = jpa.save(s);
+        return String.format("Entity ID: %d", save.getId());
     }
 }
