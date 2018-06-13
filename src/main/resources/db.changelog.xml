@@ -13,7 +13,25 @@
     <property name="schema.dlmis" value="" dbms="mysql"/>
     <property name="schema.dlmis" value="dlmis" dbms="oracle"/>
 
-    <changeSet author="xxx" id="createTable-example-01">
+    <changeSet author="xxx" id="createTable-oracle-01" dbms="oracle">
+        <createSequence cycle="true"
+                        incrementBy="1"
+                        maxValue="1000"
+                        minValue="10"
+                        ordered="true"
+                        schemaName="${schema.dlsys}"
+                        sequenceName="seq_id_001"
+                        startValue="10"/>
+        <createTable remarks="系统配置表(测试)"
+                     schemaName="${schema.dlsys}"
+                     tableName="a_1">
+            <column name="id" type="int">
+                <constraints primaryKey="true"></constraints>
+            </column>
+            <column name="key" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="xxx" id="createTable-mysql-01" dbms="mysql">
         <createTable remarks="系统配置表(测试)"
                      schemaName="${schema.dlsys}"
                      tableName="a_1">
