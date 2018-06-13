@@ -11,8 +11,7 @@ import javax.persistence.*;
 public class TableLock {
     @Id
     @GeneratedValue(generator = "generator")
-//    @GenericGenerator(name = "generator", strategy = "native")
-    @SequenceGenerator(name = "generator")
+    @GenericGenerator(strategy = "native", name = "generator", parameters = {@org.hibernate.annotations.Parameter(name = "sequence", value = SchemaConst.DLSYS_ + "seq_id_001")})
     private int id;
 
     @Column(name = "unikey")
